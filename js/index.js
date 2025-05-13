@@ -19,3 +19,4 @@ window.onload = function() {
     entriesList.appendChild(div);
   });
 };
+<script src="js/index.js"></script>
