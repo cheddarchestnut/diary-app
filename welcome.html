@@ -42,13 +42,15 @@
     #message {
       font-size: 50px;
       opacity: 0;
-      visibility: hidden;
-      transition: opacity 1.5s ease;
+      transition: opacity 1.2s ease;
     }
 
-    #message.show {
+    .fade-in {
       opacity: 1;
-      visibility: visible;
+    }
+
+    .fade-out {
+      opacity: 0;
     }
 
     #startBtn {
@@ -62,13 +64,11 @@
       cursor: pointer;
       border-radius: 8px;
       opacity: 0;
-      visibility: hidden;
       transition: opacity 1.5s ease;
     }
 
     #startBtn.show {
       opacity: 1;
-      visibility: visible;
     }
 
     #startBtn:hover {
@@ -120,19 +120,24 @@
     const message = document.getElementById('message');
     const startBtn = document.getElementById('startBtn');
 
+    // Step 1: fade in "Welcome Back"
     setTimeout(() => {
-      message.classList.add('show');
-    }, 500);
+      message.classList.add('fade-in');
+    }, 300);
 
+    // Step 2: fade out after 3s
     setTimeout(() => {
-      message.classList.remove('show');
-    }, 3500);
+      message.classList.remove('fade-in');
+      message.classList.add('fade-out');
+    }, 3300);
 
+    // Step 3: fade in new message + button
     setTimeout(() => {
       message.textContent = "Let's write something about today";
-      message.classList.add('show');
+      message.classList.remove('fade-out');
+      message.classList.add('fade-in');
       startBtn.classList.add('show');
-    }, 3800);
+    }, 4000);
   </script>
 </body>
 </html>
