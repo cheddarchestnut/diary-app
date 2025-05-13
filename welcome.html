@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      background-color: #C2D0B7;
+      font-family: 'Abhaya Libre', Arial, sans-serif;
+      color: #54545B;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #message {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    #signInBtn {
+      display: none;
+      font-size: 16px;
+      font-family: 'Abhaya Libre', Arial, sans-serif;
+      color: #54545B;
+      border: 2px solid #54545B;
+      padding: 10px 30px;
+      background: transparent;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    #signInBtn:hover {
+      background-color: #54545B;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="message">Hi!</div>
+    <button id="signInBtn" onclick="window.location.href='new.html'">Sign in</button>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('message').textContent = "This is your diary";
+    }, 2000);
+
+    setTimeout(() => {
+      document.getElementById('signInBtn').style.display = 'inline-block';
+    }, 4000);
+  </script>
+</body>
+</html>
