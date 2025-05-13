@@ -109,7 +109,23 @@ hr {
   margin-bottom: 20px;
 }
 
-/* ☰ 汉堡按钮样式 */
+/* =========== 头像样式修复 =========== */
+.avatar {
+  position: relative;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  margin: -50px auto 20px;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  cursor: pointer;
+}
+
+/* =========== 移动端汉堡按钮 =========== */
 .hamburger {
   display: none;
   position: fixed;
@@ -119,11 +135,38 @@ hr {
   background: none;
   border: none;
   color: #54545B;
-  z-index: 200;
+  z-index: 300;
   cursor: pointer;
 }
 
-/* 移动端样式 */
+/* =========== 响应式菜单样式 =========== */
+.sidebar {
+  width: 200px;
+  background-color: #f5f4f1;
+  padding: 20px 10px;
+  height: 100vh;
+  border-right: 1px solid #ccc;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.nav-link {
+  display: block;
+  color: #54545B;
+  text-decoration: none;
+  margin: 12px 0;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: transparent !important;
+}
+
 @media (max-width: 600px) {
   body {
     padding: 10px;
@@ -144,8 +187,19 @@ hr {
     display: block;
   }
 
-  /* 解决点击前悬停变黑块问题 */
-  .nav-link:hover {
-    background-color: transparent !important;
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 75%;
+    background-color: #f5f4f1;
+    z-index: 250;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
   }
 }
