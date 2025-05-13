@@ -109,7 +109,6 @@ hr {
   margin-bottom: 20px;
 }
 
-/* =========== 头像样式修复 =========== */
 .avatar {
   position: relative;
   z-index: 2;
@@ -125,7 +124,6 @@ hr {
   cursor: pointer;
 }
 
-/* =========== 移动端汉堡按钮 =========== */
 .hamburger {
   display: none;
   position: fixed;
@@ -139,7 +137,6 @@ hr {
   cursor: pointer;
 }
 
-/* =========== 响应式菜单样式 =========== */
 .sidebar {
   width: 200px;
   background-color: #f5f4f1;
@@ -151,6 +148,10 @@ hr {
 
 .sidebar.hidden {
   transform: translateX(-100%);
+}
+
+.sidebar.show {
+  transform: translateX(0);
 }
 
 .nav-link {
@@ -197,9 +198,5 @@ hr {
     z-index: 250;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
     transform: translateX(-100%);
-  }
-
-  .sidebar.show {
-    transform: translateX(0);
   }
 }
