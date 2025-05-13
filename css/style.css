@@ -2,7 +2,6 @@ body {
   background-color: #C2D0B7;
   font-family: 'Lato', Arial, sans-serif;
   color: #54545B;
-  cursor: url('../assets/cursor.cur'), auto;
   margin: 0;
   padding: 0 20px;
   line-height: 1.6;
@@ -43,6 +42,8 @@ textarea {
   margin-bottom: 15px;
   font-size: 1rem;
   font-family: 'Lato', Arial, sans-serif;
+
+  cursor: url('../assets/cursor.cur'), auto;
 }
 
 button {
@@ -87,7 +88,9 @@ hr {
     margin: 5px 0;
   }
 
-  input, textarea, button {
+  input,
+  textarea,
+  button {
     width: 100%;
   }
 }
