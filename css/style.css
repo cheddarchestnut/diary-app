@@ -67,6 +67,24 @@ button:hover {
   color: white;
 }
 
+#message {
+  font-size: 50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
 .entry {
   background-color: #ffffffcc;
   border-radius: 10px;
