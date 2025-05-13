@@ -1,14 +1,92 @@
-<form id="registerForm">
-  <label for="username">Enter your name:</label><br>
-  <input type="text" id="username" required><br><br>
-  <button type="submit">Continue</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<script>
-  document.getElementById("registerForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const name = document.getElementById("username").value;
-    localStorage.setItem("diaryUser", name);
-    window.location.href = "index.html";
-  });
-</script>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Abhaya Libre', Arial, sans-serif;
+      background-color: #f5f4f1;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      background-color: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-family: 'Abhaya Libre', Arial, sans-serif;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #54545B;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Abhaya Libre', Arial, sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3f3f45;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>What's your name?</h1>
+    <form id="registerForm">
+      <input type="text" id="username" placeholder="Enter your name..." required />
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("username").value;
+      localStorage.setItem("diaryUser", name);
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
