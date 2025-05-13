@@ -109,6 +109,7 @@ hr {
   margin-bottom: 20px;
 }
 
+/* ========== Avatar ========== */
 .avatar {
   position: relative;
   z-index: 2;
@@ -124,6 +125,7 @@ hr {
   cursor: pointer;
 }
 
+/* ========== Hamburger ========== */
 .hamburger {
   display: none;
   position: fixed;
@@ -137,6 +139,7 @@ hr {
   cursor: pointer;
 }
 
+/* ========== Sidebar ========== */
 .sidebar {
   width: 200px;
   background-color: #f5f4f1;
@@ -168,6 +171,7 @@ hr {
   background-color: transparent !important;
 }
 
+/* ========== Responsive ========== */
 @media (max-width: 600px) {
   body {
     padding: 10px;
@@ -198,5 +202,13 @@ hr {
     z-index: 250;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
     transform: translateX(-100%);
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  .nav-link:hover {
+    background-color: transparent;
   }
 }
