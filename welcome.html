@@ -3,37 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title>Welcome</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
   <style>
-    body {
-      background-color: #C2D0B7;
-      font-family: 'Abhaya Libre', Arial, sans-serif;
-      color: #54545B;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
+    * {
+      box-sizing: border-box;
     }
 
-    #container {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    body {
+      margin: 0;
+      font-family: 'Abhaya Libre', Arial, sans-serif;
+      color: #54545B;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .left, .right {
+      width: 50%;
+      height: 100vh;
+    }
+
+    .left {
+      background: url('assets/welcomeBG') center center / cover no-repeat;
+    }
+
+    .right {
+      background-color: #C2D0B7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
     }
 
     #message {
       font-size: 50px;
-      margin: 0;
+      opacity: 1;
+      transition: opacity 1s ease;
     }
 
     #startBtn {
-      position: absolute;
-      top: 65%;
-      left: 50%;
-      transform: translateX(-50%);
+      margin-top: 30px;
       font-size: 16px;
       font-family: 'Abhaya Libre', Arial, sans-serif;
       color: #54545B;
@@ -42,10 +55,9 @@
       background: transparent;
       cursor: pointer;
       border-radius: 8px;
-
       opacity: 0;
       visibility: hidden;
-      transition: opacity 1s ease;
+      transition: opacity 1.5s ease;
     }
 
     #startBtn.show {
@@ -55,31 +67,57 @@
 
     #startBtn:hover {
       background-color: #54545B;
-      color: #fff;
+      color: white;
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .left {
+        display: none;
+      }
+
+      .right {
+        width: 100%;
+        height: 100vh;
+        background: url('assets/welcomeBG') center center / cover no-repeat;
+        backdrop-filter: brightness(0.8);
+      }
+
+      #message {
+        color: white;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+      }
+
       #startBtn {
-        top: 55%;
+        color: white;
+        border-color: white;
+      }
+
+      #startBtn:hover {
+        background-color: white;
+        color: #54545B;
       }
     }
   </style>
 </head>
 <body>
-  <div id="container">
+  <div class="left"></div>
+  <div class="right">
     <div id="message">Welcome Back</div>
+    <button id="startBtn" onclick="window.location.href='register.html'">Start</button>
   </div>
-
-  <button id="startBtn" onclick="window.location.href='new.html'">Start</button>
 
   <script>
     setTimeout(() => {
-      document.getElementById('message').textContent = "This Is Your Diary";
-    }, 5000);
+      document.getElementById('message').textContent = "Let's write something about today";
+    }, 3000);
 
     setTimeout(() => {
       document.getElementById('startBtn').classList.add('show');
-    }, 7000);
+    }, 3000);
   </script>
 </body>
 </html>
