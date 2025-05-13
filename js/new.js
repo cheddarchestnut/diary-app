@@ -62,10 +62,9 @@ function handleImageUpload(inputId, storageKey, targetId, type = 'src') {
 handleImageUpload('avatarUpload', 'userAvatar', 'avatar', 'src');
 handleImageUpload('headerUpload', 'userHeader', 'headerBg', 'bg');
 
-document.getElementById('avatar')?.addEventListener('click', function () {
+document.getElementById('avatar').addEventListener('click', () => {
   document.getElementById('avatarUpload').click();
 });
-
-document.getElementById('headerBg')?.addEventListener('click', function () {
+document.getElementById('headerBg').addEventListener('click', () => {
   document.getElementById('headerUpload').click();
 });
