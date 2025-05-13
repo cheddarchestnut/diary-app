@@ -1,15 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Diary Entry</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Flatpickr Green Theme -->
+  <!-- Flatpickr green theme -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_green.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+  <style>
+    body {
+      background-color: #f5f4f1;
+      font-family: 'Lato', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #aab89d;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 20px 0 5px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: 'Lato', sans-serif;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 12px;
+      background-color: #54545B;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #36363d;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 25px;
+      }
+
+      button {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -22,25 +117,24 @@
   </header>
 
   <main>
-    <h2>New Diary Entry</h2>
-    <form id="diaryForm">
-      <label for="title">Title:</label><br>
-      <input type="text" id="title" required><br><br>
+    <div class="card">
+      <h2>New Diary Entry</h2>
+      <form id="diaryForm">
+        <label for="title">Title:</label>
+        <input type="text" id="title" required>
 
-      <label for="content">Content:</label><br>
-      <textarea id="content" rows="5" required></textarea><br><br>
+        <label for="content">Content:</label>
+        <textarea id="content" rows="6" required></textarea>
 
-      <label for="date">Date:</label><br>
-      <!-- Flatpickr-friendly input -->
-      <input type="text" id="date" placeholder="Select a date" required><br><br>
+        <label for="date">Date:</label>
+        <input type="text" id="date" placeholder="Select a date" required>
 
-      <button type="submit">Save Entry</button>
-    </form>
+        <button type="submit">Save Entry</button>
+      </form>
+    </div>
   </main>
 
   <script src="js/new.js"></script>
-
-  <!-- Flatpickr Initialization -->
   <script>
     flatpickr("#date", {
       dateFormat: "Y-m-d",
