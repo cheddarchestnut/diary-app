@@ -117,19 +117,22 @@
   </div>
 
   <script>
-    // Step 1: 淡入 Welcome Back
-    setTimeout(() => {
-      const message = document.getElementById('message');
-      message.classList.add('show');
-    }, 500); // 快速淡入
+    const message = document.getElementById('message');
+    const startBtn = document.getElementById('startBtn');
 
-    // Step 2: 4 秒后切换文本 + 淡入按钮
     setTimeout(() => {
-      const message = document.getElementById('message');
+      message.classList.add('show');
+    }, 500);
+
+    setTimeout(() => {
+      message.classList.remove('show');
+    }, 3500);
+
+    setTimeout(() => {
       message.textContent = "Let's write something about today";
-      const btn = document.getElementById('startBtn');
-      btn.classList.add('show');
-    }, 4000);
+      message.classList.add('show');
+      startBtn.classList.add('show');
+    }, 5000);
   </script>
 </body>
 </html>
