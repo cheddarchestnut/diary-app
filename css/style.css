@@ -91,9 +91,3 @@ hr {
     width: 100%;
   }
 }
-
-input,
-textarea {
-  cursor: url('../assets/cursor.cur'), auto;
-}
-
