@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Welcome</title>
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
   <style>
     body {
       background-color: #C2D0B7;
@@ -13,36 +12,38 @@
       text-align: center;
       margin: 0;
       padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
     }
 
     #container {
       position: absolute;
-      top: 50%;
+      top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
 
     #message {
       font-size: 50px;
-      margin-bottom: 20px;
+      margin: 0;
     }
 
     #signInBtn {
-  display: none;
-  font-size: 16px;
-  font-family: 'Abhaya Libre', Arial, sans-serif;
-  color: #54545B;
-  border: 2px solid #54545B;
-  padding: 10px 30px;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 8px;
-
-  position: absolute;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      font-size: 16px;
+      font-family: 'Abhaya Libre', Arial, sans-serif;
+      color: #54545B;
+      border: 2px solid #54545B;
+      padding: 10px 30px;
+      background: transparent;
+      cursor: pointer;
+      border-radius: 8px;
+    }
 
     #signInBtn:hover {
       background-color: #54545B;
@@ -53,13 +54,14 @@
 <body>
   <div id="container">
     <div id="message">Hi!</div>
-    <button id="signInBtn" onclick="window.location.href='new.html'">Sign in</button>
   </div>
+
+  <button id="signInBtn" onclick="window.location.href='new.html'">Sign in</button>
 
   <script>
     setTimeout(() => {
       document.getElementById('message').textContent = "This Is Your Diary";
-    }, 4000);
+    }, 5000);
 
     setTimeout(() => {
       document.getElementById('signInBtn').style.display = 'inline-block';
