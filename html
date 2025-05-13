@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Diary App</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header>
-    <h1>My Diary</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="new.html">New Entry</a>
-    </nav>
-  </header>
+<main>
+  <h2>New Diary Entry</h2>
+  <form id="diaryForm">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" required><br><br>
 
-  <main>
-  </main>
+    <label for="content">Content:</label><br>
+    <textarea id="content" rows="5" required></textarea><br><br>
 
-  <script src="js/index.js"></script>
-</body>
-</html>
+    <label for="date">Date:</label><br>
+    <input type="date" id="date" required><br><br>
+
+    <button type="submit">Save Entry</button>
+  </form>
+</main>
+<script src="js/new.js"></script>
