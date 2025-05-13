@@ -6,7 +6,9 @@
   <title>New Diary Entry</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <!-- Flatpickr Green Theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_green.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
@@ -29,12 +31,22 @@
       <textarea id="content" rows="5" required></textarea><br><br>
 
       <label for="date">Date:</label><br>
-      <input type="date" id="date" required><br><br>
+      <!-- Flatpickr-friendly input -->
+      <input type="text" id="date" placeholder="Select a date" required><br><br>
 
       <button type="submit">Save Entry</button>
     </form>
   </main>
 
   <script src="js/new.js"></script>
+
+  <!-- Flatpickr Initialization -->
+  <script>
+    flatpickr("#date", {
+      dateFormat: "Y-m-d",
+      allowInput: true
+    });
+  </script>
+
 </body>
 </html>
