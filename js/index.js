@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
   const entriesList = document.getElementById('entriesList');
   const entries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
 
@@ -14,7 +14,11 @@ window.onload = function() {
     div.innerHTML = `
       <h3><a href="detail.html?id=${entry.id}">${entry.title}</a></h3>
       <p><strong>Date:</strong> ${entry.date}</p>
-      <button onclick="deleteEntry(${entry.id})">Delete</button>
+      <div>
+        <button onclick="deleteEntry(${entry.id})">Delete</button>
+        <a href="edit.html?id=${entry.id}"><button>Edit</button></a>
+      </div>
+      <hr>
     `;
 
     entriesList.appendChild(div);
@@ -22,9 +26,10 @@ window.onload = function() {
 };
 
 function deleteEntry(id) {
+  if (!confirm("Are you sure you want to delete this entry?")) return;
+
   let entries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
   entries = entries.filter(entry => entry.id !== id);
   localStorage.setItem('diaryEntries', JSON.stringify(entries));
   location.reload(); 
 }
-<script src="js/index.js"></script>
