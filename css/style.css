@@ -84,7 +84,6 @@ button:hover {
   visibility: hidden;
 }
 
-
 .entry {
   background-color: #ffffffcc;
   border-radius: 10px;
@@ -110,6 +109,21 @@ hr {
   margin-bottom: 20px;
 }
 
+/* ☰ 汉堡按钮样式 */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #54545B;
+  z-index: 200;
+  cursor: pointer;
+}
+
+/* 移动端样式 */
 @media (max-width: 600px) {
   body {
     padding: 10px;
@@ -124,5 +138,14 @@ hr {
   textarea,
   button {
     width: 100%;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* 解决点击前悬停变黑块问题 */
+  .nav-link:hover {
+    background-color: transparent !important;
   }
 }
