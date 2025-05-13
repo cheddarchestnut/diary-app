@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_green.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
   <style>
     * {
       margin: 0;
@@ -19,11 +20,10 @@
       font-family: 'Lato', Arial, sans-serif;
       background-color: #f5f4f1;
       display: flex;
-      height: 100vh;
+      min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* Sidebar */
     .sidebar {
       width: 60px;
       background-color: #aab89d;
@@ -35,7 +35,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      height: 100%;
+      height: 100vh;
       z-index: 100;
     }
 
@@ -81,7 +81,6 @@
       display: inline;
     }
 
-    /* Main */
     .main {
       margin-left: 60px;
       flex: 1;
@@ -93,6 +92,8 @@
       background: url('assets/marissa-grootes-AVWmtS-qK3Y-unsplash.jpg') center/cover no-repeat;
       height: 33vh;
       width: 100%;
+      background-size: cover;
+      background-position: center;
     }
 
     main {
@@ -151,20 +152,21 @@
       background-color: #36363d;
     }
 
-    /* Hamburger for mobile */
+    /* Hamburger Icon */
     .hamburger {
       display: none;
       position: absolute;
       top: 20px;
       left: 20px;
       font-size: 26px;
-      color: #333;
       background: none;
       border: none;
+      color: #54545B;
       z-index: 200;
       cursor: pointer;
     }
 
+    /* Mobile Styles */
     @media (max-width: 768px) {
       body {
         flex-direction: column;
@@ -178,21 +180,22 @@
         transform: translateX(-100%);
         width: 75vw;
         height: 100%;
+        padding-top: 60px;
         position: fixed;
-        top: 0;
         left: 0;
+        top: 0;
         background-color: #aab89d;
         transition: transform 0.3s ease;
+        z-index: 100;
+      }
+
+      .sidebar:hover {
+        width: 75vw; /* Keep size consistent */
         padding-left: 20px;
       }
 
       .sidebar.open {
         transform: translateX(0);
-      }
-
-      .sidebar:hover {
-        width: 75vw;
-        padding-left: 20px;
       }
 
       .sidebar h2 {
@@ -203,21 +206,16 @@
         display: inline;
       }
 
+      .nav-link:hover {
+        background-color: transparent; /* Remove dark hover on mobile */
+      }
+
       .main {
         margin-left: 0;
-        margin-top: 0;
       }
 
       .profile-header {
         height: 40vh;
-      }
-
-      main {
-        padding: 20px;
-      }
-
-      .card {
-        padding: 25px;
       }
     }
   </style>
@@ -225,10 +223,8 @@
 
 <body>
 
-  <!-- ☰ hamburger -->
   <button class="hamburger" onclick="toggleSidebar()">☰</button>
 
-  <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
     <h2>Entries</h2>
     <a class="nav-link" href="index.html">📄<span> All Entries</span></a>
@@ -236,7 +232,6 @@
     <a class="nav-link" href="register.html">👤<span> Register</span></a>
   </div>
 
-  <!-- Main Content -->
   <div class="main">
     <div class="profile-header"></div>
 
@@ -259,7 +254,6 @@
     </main>
   </div>
 
-  <!-- Scripts -->
   <script src="js/new.js"></script>
   <script>
     flatpickr("#date", {
@@ -268,8 +262,7 @@
     });
 
     function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('open');
+      document.getElementById('sidebar').classList.toggle('open');
     }
   </script>
 
