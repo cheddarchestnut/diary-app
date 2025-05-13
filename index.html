@@ -4,8 +4,106 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Diary List</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Abhaya Libre', Arial, sans-serif;
+      background-color: #f5f4f1;
+      color: #333;
+      padding: 0;
+    }
+
+    header {
+      background-color: #aab89d;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    #searchInput {
+      width: 100%;
+      max-width: 500px;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      font-family: 'Abhaya Libre', Arial, sans-serif;
+    }
+
+    .entry {
+      background-color: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .entry h3 {
+      margin-top: 0;
+    }
+
+    .entry button {
+      background-color: #54545B;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      margin-right: 10px;
+      font-family: 'Abhaya Libre', Arial, sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .entry button:hover {
+      background-color: #3f3f45;
+    }
+
+    .entry a button {
+      background-color: transparent;
+      color: #54545B;
+      border: 2px solid #54545B;
+    }
+
+    .entry a button:hover {
+      background-color: #54545B;
+      color: white;
+    }
+
+    hr {
+      margin-top: 20px;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -17,13 +115,11 @@
   </header>
 
   <main>
-    <h2>Diary Entries</h2>
-
-    <!-- search -->
-    <input type="text" id="searchInput" placeholder="Search by title..." />
-    <br><br>
-
-    <div id="entriesList"></div>
+    <div class="card">
+      <h2>Diary Entries</h2>
+      <input type="text" id="searchInput" placeholder="Search by title..." />
+      <div id="entriesList"></div>
+    </div>
   </main>
 
   <script>
