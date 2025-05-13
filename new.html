@@ -52,6 +52,8 @@
     .profile-header {
       background: url('assets/marissa-grootes-AVWmtS-qK3Y-unsplash.jpg') center/cover no-repeat;
       height: 250px;
+      position: relative;
+      cursor: pointer;
     }
 
     .avatar {
@@ -64,6 +66,7 @@
       display: block;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       background-color: white;
+      cursor: pointer;
     }
 
     main {
@@ -153,9 +156,11 @@
   </div>
 
   <div class="main">
-    <div class="profile-header"></div>
+    <div class="profile-header" id="headerBg"></div>
+    <input type="file" id="headerUpload" accept="image/*" style="display: none;">
 
-    <img src="assets/declan-sun-GQiYpVy3Y5Q-unsplash.jpg" alt="Avatar" class="avatar">
+    <img src="assets/declan-sun-GQiYpVy3Y5Q-unsplash.jpg" alt="Avatar" class="avatar" id="avatar">
+    <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
 
     <main>
       <div class="card">
@@ -182,6 +187,43 @@
       dateFormat: "Y-m-d",
       allowInput: true
     });
+
+    document.getElementById('avatar').addEventListener('click', () => {
+      document.getElementById('avatarUpload').click();
+    });
+    document.getElementById('headerBg').addEventListener('click', () => {
+      document.getElementById('headerUpload').click();
+    });
+
+    function handleImageUpload(inputId, storageKey, targetId, type = 'src') {
+      const input = document.getElementById(inputId);
+      const target = document.getElementById(targetId);
+      input.addEventListener('change', () => {
+        const file = input.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          const base64 = reader.result;
+          localStorage.setItem(storageKey, base64);
+          if (type === 'src') {
+            target.src = base64;
+          } else {
+            target.style.backgroundImage = `url(${base64})`;
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    window.onload = () => {
+      const avatar = localStorage.getItem('userAvatar');
+      const header = localStorage.getItem('userHeader');
+      if (avatar) document.getElementById('avatar').src = avatar;
+      if (header) document.getElementById('headerBg').style.backgroundImage = `url(${header})`;
+    };
+
+    handleImageUpload('avatarUpload', 'userAvatar', 'avatar', 'src');
+    handleImageUpload('headerUpload', 'userHeader', 'headerBg', 'bg');
   </script>
 </body>
 </html>
