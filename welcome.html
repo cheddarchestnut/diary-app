@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Welcome</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
@@ -43,17 +43,12 @@
       font-size: 50px;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 1.2s ease, visibility 1.2s ease;
+      transition: opacity 1s ease, visibility 1s ease;
     }
 
-    .fade-in {
+    #message.visible {
       opacity: 1;
       visibility: visible;
-    }
-
-    .fade-out {
-      opacity: 0;
-      visibility: hidden;
     }
 
     #startBtn {
@@ -67,11 +62,13 @@
       cursor: pointer;
       border-radius: 8px;
       opacity: 0;
-      transition: opacity 1.5s ease;
+      visibility: hidden;
+      transition: opacity 1.5s ease, visibility 1.5s ease;
     }
 
     #startBtn.show {
       opacity: 1;
+      visibility: visible;
     }
 
     #startBtn:hover {
@@ -120,23 +117,24 @@
   </div>
 
   <script>
-    const message = document.getElementById('message');
-    const startBtn = document.getElementById('startBtn');
+    const message = document.getElementById("message");
+    const startBtn = document.getElementById("startBtn");
 
+    // Step 1: Show "Welcome Back"
     setTimeout(() => {
-      message.classList.add('fade-in');
+      message.classList.add("visible");
     }, 300);
 
+    // Step 2: Hide "Welcome Back"
     setTimeout(() => {
-      message.classList.remove('fade-in');
-      message.classList.add('fade-out');
+      message.classList.remove("visible");
     }, 3300);
 
+    // Step 3: Change text + Show new message + button
     setTimeout(() => {
       message.textContent = "Let's write something about today";
-      message.classList.remove('fade-out');
-      message.classList.add('fade-in');
-      startBtn.classList.add('show');
+      message.classList.add("visible");
+      startBtn.classList.add("show");
     }, 4100);
   </script>
 </body>
