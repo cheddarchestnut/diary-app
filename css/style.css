@@ -32,7 +32,8 @@ nav a:hover {
 
 input[type="text"],
 input[type="date"],
-textarea {
+textarea,
+#searchInput {
   width: 100%;
   max-width: 500px;
   padding: 10px;
@@ -42,8 +43,11 @@ textarea {
   margin-bottom: 15px;
   font-size: 1rem;
   font-family: 'Lato', Arial, sans-serif;
-
   cursor: url('../assets/cursor.cur'), auto;
+}
+
+#searchInput {
+  max-width: 400px;
 }
 
 button {
