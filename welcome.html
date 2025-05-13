@@ -34,7 +34,6 @@
       top: 65%;
       left: 50%;
       transform: translateX(-50%);
-      display: none;
       font-size: 16px;
       font-family: 'Abhaya Libre', Arial, sans-serif;
       color: #54545B;
@@ -43,6 +42,15 @@
       background: transparent;
       cursor: pointer;
       border-radius: 8px;
+
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s ease;
+    }
+
+    #startBtn.show {
+      opacity: 1;
+      visibility: visible;
     }
 
     #startBtn:hover {
@@ -70,7 +78,7 @@
     }, 5000);
 
     setTimeout(() => {
-      document.getElementById('startBtn').style.display = 'inline-block';
+      document.getElementById('startBtn').classList.add('show');
     }, 7000);
   </script>
 </body>
