@@ -14,9 +14,17 @@ window.onload = function() {
     div.innerHTML = `
       <h3><a href="detail.html?id=${entry.id}">${entry.title}</a></h3>
       <p><strong>Date:</strong> ${entry.date}</p>
+      <button onclick="deleteEntry(${entry.id})">Delete</button>
     `;
 
     entriesList.appendChild(div);
   });
 };
+
+function deleteEntry(id) {
+  let entries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
+  entries = entries.filter(entry => entry.id !== id);
+  localStorage.setItem('diaryEntries', JSON.stringify(entries));
+  location.reload(); 
+}
 <script src="js/index.js"></script>
