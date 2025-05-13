@@ -29,9 +29,9 @@
       margin: 0;
     }
 
-    #signInBtn {
+    #startBtn {
       position: absolute;
-      top: 65%; 
+      top: 65%;
       left: 50%;
       transform: translateX(-50%);
       display: none;
@@ -45,13 +45,13 @@
       border-radius: 8px;
     }
 
-    #signInBtn:hover {
+    #startBtn:hover {
       background-color: #54545B;
       color: #fff;
     }
 
     @media (min-width: 768px) {
-      #signInBtn {
+      #startBtn {
         top: 55%;
       }
     }
@@ -62,7 +62,7 @@
     <div id="message">Hi!</div>
   </div>
 
-  <button id="signInBtn" onclick="window.location.href='new.html'">Sign in</button>
+  <button id="startBtn" onclick="window.location.href='new.html'">Start</button>
 
   <script>
     setTimeout(() => {
@@ -70,7 +70,7 @@
     }, 5000);
 
     setTimeout(() => {
-      document.getElementById('signInBtn').style.display = 'inline-block';
+      document.getElementById('startBtn').style.display = 'inline-block';
     }, 7000);
   </script>
 </body>
