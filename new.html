@@ -6,19 +6,14 @@
   <title>New Diary Entry</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- Flatpickr -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_green.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
   <style>
     body {
       margin: 0;
       font-family: 'Lato', Arial, sans-serif;
       background-color: #f5f4f1;
-      color: #333;
       display: flex;
-      min-height: 100vh;
     }
 
     /* Sidebar */
@@ -26,23 +21,27 @@
       width: 60px;
       background-color: #aab89d;
       color: white;
-      padding: 20px 10px;
+      padding: 20px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       transition: width 0.3s;
       position: fixed;
       height: 100vh;
+      z-index: 2;
+      overflow: hidden;
+      border-right: none;
     }
 
     .sidebar:hover {
       width: 200px;
       align-items: flex-start;
+      padding-left: 20px;
     }
 
     .sidebar h2 {
       font-size: 16px;
-      margin: 0 0 20px 10px;
+      margin-bottom: 20px;
       opacity: 0;
       transition: opacity 0.3s;
     }
@@ -54,12 +53,13 @@
     .nav-link {
       color: white;
       text-decoration: none;
-      padding: 10px;
+      padding: 12px 10px;
       display: flex;
       align-items: center;
-      transition: background 0.3s;
-      width: 100%;
       border-radius: 6px;
+      width: 100%;
+      margin-bottom: 15px;
+      transition: background 0.3s;
     }
 
     .nav-link:hover {
@@ -75,7 +75,7 @@
       display: inline;
     }
 
-    /* Main Content */
+    /* Main area */
     .main {
       margin-left: 60px;
       flex: 1;
@@ -86,13 +86,7 @@
 
     .profile-header {
       background: url('assets/marissa-grootes-AVWmtS-qK3Y-unsplash.jpg') center/cover no-repeat;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      padding: 0 30px;
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
+      height: 33vh;
     }
 
     main {
@@ -133,7 +127,6 @@
       border-radius: 6px;
       font-size: 1rem;
       font-family: 'Lato', sans-serif;
-      box-sizing: border-box;
     }
 
     button {
@@ -146,54 +139,72 @@
       border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
     button:hover {
       background-color: #36363d;
     }
 
-    /* Responsive */
+    /* Hamburger button for mobile */
+    .hamburger {
+      display: none;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 28px;
+      color: white;
+      background: none;
+      border: none;
+      z-index: 100;
+      cursor: pointer;
+    }
+
     @media (max-width: 768px) {
       .sidebar {
-        position: absolute;
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 10px;
-        z-index: 10;
+        transform: translateX(-100%);
+        width: 75vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #aab89d;
+        z-index: 50;
+        transition: transform 0.3s ease;
       }
 
-      .sidebar:hover {
-        width: 100%;
+      .sidebar.open {
+        transform: translateX(0);
       }
 
       .sidebar h2 {
-        display: none;
+        display: block;
+        opacity: 1;
       }
 
       .nav-link span {
-        display: none !important;
+        display: inline;
       }
 
       .main {
         margin-left: 0;
-        margin-top: 60px;
+        margin-top: 0;
+        width: 100%;
+      }
+
+      .hamburger {
+        display: block;
       }
 
       .profile-header {
-        font-size: 20px;
+        height: 25vh;
+      }
+
+      main {
         padding: 20px;
-        height: 120px;
       }
 
       .card {
         padding: 25px;
-      }
-
-      button {
-        font-size: 0.95rem;
       }
     }
   </style>
@@ -201,7 +212,10 @@
 
 <body>
 
-  <div class="sidebar">
+  <!-- Hamburger icon (mobile only) -->
+  <button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+  <div class="sidebar" id="sidebar">
     <h2>Entries</h2>
     <a class="nav-link" href="index.html">📄<span> All Entries</span></a>
     <a class="nav-link" href="new.html">📝<span> New Entry</span></a>
@@ -209,9 +223,7 @@
   </div>
 
   <div class="main">
-    <div class="profile-header">
-      Welcome to Your Diary
-    </div>
+    <div class="profile-header"></div>
 
     <main>
       <div class="card">
@@ -238,6 +250,11 @@
       dateFormat: "Y-m-d",
       allowInput: true
     });
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
   </script>
 
 </body>
