@@ -168,7 +168,7 @@ hr {
 }
 
 .nav-link:hover {
-  background-color: transparent !important;
+  background-color: #e0ded9;
 }
 
 /* ========== Responsive ========== */
@@ -209,6 +209,6 @@ hr {
   }
 
   .nav-link:hover {
-    background-color: transparent;
+    background-color: transparent !important;
   }
 }
