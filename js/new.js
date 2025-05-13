@@ -1,4 +1,3 @@
-// ========== 提交表单 ==========
 document.getElementById('diaryForm').addEventListener('submit', function (event) {
   event.preventDefault();
 
@@ -20,7 +19,6 @@ document.getElementById('diaryForm').addEventListener('submit', function (event)
   window.location.href = 'index.html';
 });
 
-// ========== 图像上传处理函数 ==========
 function handleImageUpload(inputId, storageKey, targetId, type = 'src') {
   const input = document.getElementById(inputId);
   const target = document.getElementById(targetId);
@@ -42,14 +40,11 @@ function handleImageUpload(inputId, storageKey, targetId, type = 'src') {
     };
     reader.readAsDataURL(file);
 
-    // ✨ 关键修复：重置 value 防止重复弹出
     input.value = '';
   });
 }
 
-// ========== 页面加载完成后执行 ==========
 window.addEventListener('DOMContentLoaded', function () {
-  // === 加载头像和背景 ===
   const avatar = localStorage.getItem('userAvatar');
   const header = localStorage.getItem('userHeader');
 
@@ -63,11 +58,9 @@ window.addEventListener('DOMContentLoaded', function () {
     if (headerDiv) headerDiv.style.backgroundImage = `url(${header})`;
   }
 
-  // === 注册上传函数 ===
   handleImageUpload('avatarUpload', 'userAvatar', 'avatar', 'src');
   handleImageUpload('headerUpload', 'userHeader', 'headerBg', 'bg');
 
-  // === 点击头像或背景触发上传 ===
   const avatarTrigger = document.getElementById('avatar');
   const headerTrigger = document.getElementById('headerBg');
   if (avatarTrigger) {
@@ -81,7 +74,6 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // === 移动端汉堡菜单功能 ===
   const hamburger = document.getElementById('hamburger');
   const sidebar = document.querySelector('.sidebar');
   if (hamburger && sidebar) {
