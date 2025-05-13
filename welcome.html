@@ -41,8 +41,14 @@
 
     #message {
       font-size: 50px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1.5s ease;
+    }
+
+    #message.show {
       opacity: 1;
-      transition: opacity 1s ease;
+      visibility: visible;
     }
 
     #startBtn {
@@ -111,12 +117,18 @@
   </div>
 
   <script>
+    // Step 1: 淡入 Welcome Back
     setTimeout(() => {
-      document.getElementById('message').textContent = "Let's write something about today";
-    }, 4000);
+      const message = document.getElementById('message');
+      message.classList.add('show');
+    }, 500); // 快速淡入
 
+    // Step 2: 4 秒后切换文本 + 淡入按钮
     setTimeout(() => {
-      document.getElementById('startBtn').classList.add('show');
+      const message = document.getElementById('message');
+      message.textContent = "Let's write something about today";
+      const btn = document.getElementById('startBtn');
+      btn.classList.add('show');
     }, 4000);
   </script>
 </body>
