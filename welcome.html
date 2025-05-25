@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <title>Welcome</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font preload (faster for UK) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
@@ -27,6 +31,7 @@
 
     .left {
       background: url('assets/toa-heftiba-4dnkj8S95to-unsplash.jpg') center center / cover no-repeat;
+      background-size: cover;
     }
 
     .right {
@@ -63,7 +68,7 @@
       border-radius: 8px;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 1.5s ease, visibility 1.5s ease;
+      transition: opacity 1s ease, visibility 1s ease;
     }
 
     #startBtn.show {
@@ -110,32 +115,35 @@
   </style>
 </head>
 <body>
-  <div class="left"></div>
+  <div class="left" aria-hidden="true"></div>
+
   <div class="right">
-    <div id="message">Welcome Back</div>
-    <button id="startBtn" onclick="window.location.href='register.html'">Start</button>
+    <div id="message" aria-live="polite">Welcome Back</div>
+    <button id="startBtn" onclick="window.location.href='register.html'" aria-label="Start writing diary">Start</button>
   </div>
 
   <script>
     const message = document.getElementById("message");
     const startBtn = document.getElementById("startBtn");
 
-    // Step 1: Show "Welcome Back"
-    setTimeout(() => {
-      message.classList.add("visible");
-    }, 300);
+    window.addEventListener('DOMContentLoaded', () => {
+      // Step 1: show welcome
+      setTimeout(() => {
+        message.classList.add("visible");
+      }, 300);
 
-    // Step 2: Hide "Welcome Back"
-    setTimeout(() => {
-      message.classList.remove("visible");
-    }, 3300);
+      // Step 2: hide
+      setTimeout(() => {
+        message.classList.remove("visible");
+      }, 3300);
 
-    // Step 3: Change text + Show new message + button
-    setTimeout(() => {
-      message.textContent = "Let's write something about today";
-      message.classList.add("visible");
-      startBtn.classList.add("show");
-    }, 4100);
+      // Step 3: update + reveal new message and button
+      setTimeout(() => {
+        message.textContent = "Let's write something about today";
+        message.classList.add("visible");
+        startBtn.classList.add("show");
+      }, 4100);
+    });
   </script>
 </body>
 </html>
