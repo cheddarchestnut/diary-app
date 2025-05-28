@@ -1,25 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Diary List</title>
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <header>
-    <h1>My Diary</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="new.html">New Entry</a>
-    </nav>
-  </header>
+# Personal Diary Web Application
 
-  <main>
-    <h2>Diary Entries</h2>
-    <div id="entriesList"></div>
-  </main>
+## Overview
 
-  <script src="js/index.js"></script>
-</body>
-</html>
+This project is a personal diary web application built using HTML5, CSS3, and JavaScript. It allows users to create, view, edit, and delete daily journal entries. All data is stored locally using the `localStorage` API.
+
+The application was developed as part of the 2025 Web Application Design and Development (WADD) module.
+
+## Features
+
+- Welcome screen with animated transition
+- User registration interface (mock login)
+- Create new diary entries with title, content, and date
+- Customizable user avatar and header background
+- View all past entries with search functionality
+- Edit and delete existing entries
+- Fully responsive design (desktop and mobile)
+
+## Technologies Used
+
+- HTML5 / CSS3
+- JavaScript (ES6)
+- LocalStorage for persistent client-side data
+- Responsive layout using media queries
+- Flatpickr for date selection
+
+## How to Run
+
+Open `welcome.html` in a web browser. All data is stored locally in your browser and will persist between sessions.
