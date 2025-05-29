@@ -109,7 +109,7 @@ hr {
   margin-bottom: 20px;
 }
 
-/* ========== Avatar ========== */
+/* Avatar */
 .avatar {
   position: relative;
   z-index: 2;
@@ -125,7 +125,7 @@ hr {
   cursor: pointer;
 }
 
-/* ========== Hamburger ========== */
+/* Hamburger */
 .hamburger {
   display: none;
   position: fixed;
@@ -139,7 +139,7 @@ hr {
   cursor: pointer;
 }
 
-/* ========== Sidebar ========== */
+/* Sidebar */
 .sidebar {
   width: 200px;
   background-color: #f5f4f1;
@@ -171,7 +171,7 @@ hr {
   background-color: #e0ded9;
 }
 
-/* ========== Responsive ========== */
+/* Responsive */
 @media (max-width: 600px) {
   body {
     padding: 10px;
