@@ -4,8 +4,6 @@
 
 This project is a personal diary web application built using HTML5, CSS3, and JavaScript. It allows users to create, view, edit, and delete daily journal entries. All data is stored locally using the `localStorage` API.
 
-The application was developed as part of the 2025 Web Application Design and Development (WADD) module.
-
 ## Features
 
 - Welcome screen with animated transition
